@@ -2,14 +2,14 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment2">
+    app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/homeFragment2"
+        android:id="@+id/homeFragment"
         android:name="com.sarftec.lifehacks.view.fragment.HomeFragment"
         android:label="HomeFragment" />
     <fragment
-        android:id="@+id/bookmarkFragment2"
+        android:id="@+id/bookmarkFragment"
         android:name="com.sarftec.lifehacks.view.fragment.BookmarkFragment"
         android:label="BookmarkFragment" />
 </navigation>
