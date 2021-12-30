@@ -1,0 +1,58 @@
+[
+    {
+        "category_name": "Technology Tricks",
+        "id": 1
+    },
+    {
+        "category_name": "Food and Drinks",
+        "id": 2
+    },
+    {
+        "category_name": "Health and Fitness",
+        "id": 3
+    },
+    {
+        "category_name": "Money Savers",
+        "id": 4
+    },
+    {
+        "category_name": "Life Tips",
+        "id": 5
+    },
+    {
+        "category_name": "Party Hacks",
+        "id": 6
+    },
+    {
+        "category_name": "Survival",
+        "id": 7
+    },
+    {
+        "category_name": "Brainy",
+        "id": 8
+    },
+    {
+        "category_name": "Daily-life Solutions",
+        "id": 9
+    },
+    {
+        "category_name": "Extras",
+        "id": 10
+    },
+    {
+        "category_name": "Protect Yourself in a Terrorist Attack",
+        "id": 11
+    },
+    {
+        "category_name": "Natural Disasters and Safety Tips",
+        "id": 12
+    },
+    {
+        "category_name": "Tips For Self Defense",
+        "id": 13
+    },
+    {
+        "category_name": "Travel Hacks",
+        "id": 14
+    }
+]

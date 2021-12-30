@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CustomToolbarStyle" parent="TextAppearance.MaterialComponents.Headline6">
+
+    </style>
+
+    <style name="CategoryHeadStyle" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/color_color_on_category</item>
+        <item name="android:fontFamily">@font/custom_bold</item>
+    </style>
+
+    <style name="CategorySubHeadStyle" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/color_color_on_category</item>
+        <item name="android:fontFamily">@font/custom_bold</item>
+    </style>
+</resources>
