@@ -21,7 +21,10 @@ class CategoryItemViewHolder private constructor(
             layoutBinding.category.text = category.category
             dependency.viewModel.getImage(category).let {
                 if(it.isSuccess()) layoutBinding.imageView.loadImage(itemView, it.data!!)
-                else Log.v("TAG", "${it.message}")
+                else {
+                    layoutBinding.imageView.setImageBitmap(null)
+                    Log.v("TAG", "${it.message}")
+                }
             }
         }
     }

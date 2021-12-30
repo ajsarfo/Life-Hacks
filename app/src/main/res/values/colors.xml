@@ -17,4 +17,6 @@
     <color name="color_primary">#673AB7</color>
 
     <color name="color_color_on_category">@color/white</color>
+
+    <color name="color_category_scrim">#33000000</color>
 </resources>

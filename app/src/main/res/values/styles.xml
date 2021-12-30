@@ -6,7 +6,7 @@
     </style>
 
     <style name="CategoryHeadStyle" parent="TextAppearance.MaterialComponents.Headline5">
-        <item name="android:textSize">28sp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/color_color_on_category</item>
         <item name="android:fontFamily">@font/custom_bold</item>

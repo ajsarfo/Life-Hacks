@@ -19,9 +19,15 @@
             tools:srcCompat="@drawable/food_drinks"
             android:scaleType="centerCrop"/>
 
+       <ImageView
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:background="@color/color_category_scrim"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingHorizontal="16dp"
             android:orientation="vertical"
             android:gravity="center">
 
@@ -29,16 +35,9 @@
                 android:id="@+id/category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 tools:text="Food and Drinks Hacks"
                 style="@style/CategoryHeadStyle"/>
-
-            <TextView
-                android:id="@+id/count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                style="@style/CategorySubHeadStyle"
-                tools:text="102 Hacks"/>
         </LinearLayout>
     </FrameLayout>
 </com.google.android.material.card.MaterialCardView>
