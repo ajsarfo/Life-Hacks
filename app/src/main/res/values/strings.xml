@@ -10,19 +10,19 @@
     <string name="admob_test_reward_video_id">ca-app-pub-3940256099942544/5224354917</string>
 
 
+  <!--
    <string name="admob_banner_main">@string/admob_test_banner_id</string>
     <string name="admob_banner_list">@string/admob_test_banner_id</string>
    <string name="admob_banner_detail">@string/admob_test_banner_id</string>
 
    <string name="admob_interstitial_id">@string/admob_test_interstitial_id</string>
    <string name="admob_reward_video_id">@string/admob_test_reward_video_id</string>
+   -->
 
-    <!--
     <string name="admob_banner_main">ca-app-pub-6150813452529727/5770113140</string>
     <string name="admob_banner_list">ca-app-pub-6150813452529727/1094185741</string>
     <string name="admob_banner_detail">ca-app-pub-6150813452529727/5628859958</string>
 
     <string name="admob_interstitial_id">ca-app-pub-6150813452529727/2215695720</string>
     <string name="admob_reward_video_id">ca-app-pub-6150813452529727/4315778282</string>
-    -->
 </resources>
