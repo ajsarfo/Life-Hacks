@@ -3,8 +3,11 @@
     <dimen name="progress_size">64dp</dimen>
 
     <dimen name="hack_item_bottom_icon_size">26dp</dimen>
-    <dimen name="hack_item_bottom_icon_holder_vertical_padding">10dp</dimen>
+    <dimen name="hack_item_bottom_icon_holder_vertical_padding">12dp</dimen>
 
     <dimen name="detail_bottom_icon_size">28dp</dimen>
     <dimen name="detail_bottom_icon_holder_vertical_padding">14dp</dimen>
+
+    <dimen name="splash_logo_size">120dp</dimen>
+    <dimen name="nothing_to_show_logo_size">60dp</dimen>
 </resources>

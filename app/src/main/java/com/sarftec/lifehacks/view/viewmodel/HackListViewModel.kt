@@ -1,8 +1,14 @@
 package com.sarftec.lifehacks.view.viewmodel
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
+import com.sarftec.lifehacks.domain.model.Hack
+import com.sarftec.lifehacks.domain.repository.BookmarkRepository
 import com.sarftec.lifehacks.domain.repository.HackRepository
+import com.sarftec.lifehacks.utils.Event
+import com.sarftec.lifehacks.view.file.rebindHacks
 import com.sarftec.lifehacks.view.parcel.CategoryToList
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -12,10 +18,15 @@ import kotlin.random.Random
 @HiltViewModel
 class HackListViewModel @Inject constructor(
     private val repository: HackRepository,
+    private val bookmarkRepository: BookmarkRepository,
     private val stateHandle: SavedStateHandle
 ) : BaseHackListViewModel() {
 
-    fun getCategory() : String? {
+    private val _rebindList = MutableLiveData<Event<Collection<Hack>>>()
+    val rebindList: LiveData<Event<Collection<Hack>>>
+        get() = _rebindList
+
+    fun getCategory(): String? {
         return stateHandle.get<CategoryToList>(PARCEL)?.category
     }
 
@@ -27,7 +38,7 @@ class HackListViewModel @Inject constructor(
         }
         viewModelScope.launch {
             repository.getHacksForCategory(categoryId).let {
-                _screenState.value = if(it.isSuccess()) ScreenState.Result(
+                _screenState.value = if (it.isSuccess()) ScreenState.Result(
                     it.data!!.shuffled(Random(getRandomGeneratorId()))
                 )
                 else ScreenState.Error(it.message!!)
@@ -35,11 +46,30 @@ class HackListViewModel @Inject constructor(
         }
     }
 
+    override fun bookmark(hack: Hack) {
+        viewModelScope.launch {
+            if (hack.isFavorite) bookmarkRepository.addBookmark(hack)
+            else bookmarkRepository.removeBookmark(hack.id)
+        }
+    }
+
+    override fun handleRebind() {
+        _rebindList.value = Event(rebindHacks.toList())
+        _screenState.value?.let {
+            if (it is ScreenState.Result) rebindHacks.forEach { hack ->
+                it.hacks.forEach { screenHack ->
+                    if (screenHack == hack) screenHack.isFavorite = hack.isFavorite
+                }
+            }
+        }
+        rebindHacks.clear()
+    }
+
     fun setParcel(parcel: CategoryToList) {
         stateHandle.set(PARCEL, parcel)
     }
 
-    fun getRandomGeneratorId() : Int {
+    fun getRandomGeneratorId(): Int {
         return stateHandle.get<Int>(RANDOM_ID) ?: (0 until 100).random().also {
             stateHandle.set(RANDOM_ID, it)
         }

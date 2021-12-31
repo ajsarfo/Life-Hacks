@@ -13,7 +13,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import javax.inject.Inject
 
-class LocalSource @Inject constructor(
+class LocalHackSource @Inject constructor(
     @ApplicationContext private val context: Context
 ) {
 

@@ -11,12 +11,17 @@
         <entry key="..\:/Users/sarfo/AndroidStudioProjects/LifeHacks/app/src/main/res/drawable/ic_un_bookmark.xml" value="0.18596491228070175" />
         <entry key="..\:/Users/sarfo/AndroidStudioProjects/LifeHacks/app/src/main/res/layout/activity_detail.xml" value="0.16885964912280702" />
         <entry key="..\:/Users/sarfo/AndroidStudioProjects/LifeHacks/app/src/main/res/layout/activity_hack_list.xml" value="0.16885964912280702" />
-        <entry key="..\:/Users/sarfo/AndroidStudioProjects/LifeHacks/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/sarfo/AndroidStudioProjects/LifeHacks/app/src/main/res/layout/activity_main.xml" value="0.16885964912280702" />
+        <entry key="..\:/Users/sarfo/AndroidStudioProjects/LifeHacks/app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="..\:/Users/sarfo/AndroidStudioProjects/LifeHacks/app/src/main/res/layout/dialog_loading.xml" value="0.16885964912280702" />
+        <entry key="..\:/Users/sarfo/AndroidStudioProjects/LifeHacks/app/src/main/res/layout/fragment_bookmark.xml" value="0.1" />
         <entry key="..\:/Users/sarfo/AndroidStudioProjects/LifeHacks/app/src/main/res/layout/fragment_home.xml" value="0.20052083333333334" />
         <entry key="..\:/Users/sarfo/AndroidStudioProjects/LifeHacks/app/src/main/res/layout/layout_category_item.xml" value="0.1" />
         <entry key="..\:/Users/sarfo/AndroidStudioProjects/LifeHacks/app/src/main/res/layout/layout_detail_bottom.xml" value="0.264" />
         <entry key="..\:/Users/sarfo/AndroidStudioProjects/LifeHacks/app/src/main/res/layout/layout_detail_item.xml" value="0.16885964912280702" />
-        <entry key="..\:/Users/sarfo/AndroidStudioProjects/LifeHacks/app/src/main/res/layout/layout_hack_item.xml" value="0.264" />
+        <entry key="..\:/Users/sarfo/AndroidStudioProjects/LifeHacks/app/src/main/res/layout/layout_hack_item.xml" value="0.1" />
+        <entry key="..\:/Users/sarfo/AndroidStudioProjects/LifeHacks/app/src/main/res/layout/layout_nav_header.xml" value="0.264" />
+        <entry key="..\:/Users/sarfo/AndroidStudioProjects/LifeHacks/app/src/main/res/menu/drawer_menu.xml" value="0.16885964912280702" />
       </map>
     </option>
   </component>

@@ -4,9 +4,11 @@ import android.net.Uri
 import android.os.Parcelable
 import androidx.lifecycle.*
 import com.sarftec.lifehacks.domain.model.Hack
+import com.sarftec.lifehacks.domain.repository.BookmarkRepository
 import com.sarftec.lifehacks.domain.repository.HackRepository
 import com.sarftec.lifehacks.domain.repository.ImageRepository
 import com.sarftec.lifehacks.utils.Event
+import com.sarftec.lifehacks.view.file.rebindHacks
 import com.sarftec.lifehacks.view.parcel.ListToDetail
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -18,6 +20,7 @@ import kotlin.random.Random
 class DetailViewModel @Inject constructor(
     private val hackRepository: HackRepository,
     private val imageRepository: ImageRepository,
+    private val bookmarkRepository: BookmarkRepository,
     private val stateHandle: SavedStateHandle
 ) : ViewModel() {
 
@@ -42,7 +45,11 @@ class DetailViewModel @Inject constructor(
     }
 
     fun bookmarkHack(hack: Hack) {
-
+        viewModelScope.launch {
+            if (hack.isFavorite) bookmarkRepository.addBookmark(hack)
+            else bookmarkRepository.removeBookmark(hack.id)
+            rebindHacks.add(hack)
+        }
     }
 
     fun setCurrentPosition(position: Int) {
@@ -51,15 +58,15 @@ class DetailViewModel @Inject constructor(
         }
     }
 
-    fun getCurrentHack() : Hack? {
+    fun getCurrentHack(): Hack? {
         return stateHandle.get<DetailParcel>(PARCEL)?.let {
             getHackAtPosition(it.parcel.position)
         }
     }
 
-    fun getHackAtPosition(position: Int) : Hack? {
+    fun getHackAtPosition(position: Int): Hack? {
         val screenState = _screenState.value ?: return null
-        if(screenState !is ScreenState.Result) return null
+        if (screenState !is ScreenState.Result) return null
         return screenState.hacks[position]
     }
 
@@ -73,7 +80,13 @@ class DetailViewModel @Inject constructor(
                 else ScreenState.Error(it.message!!)
             }
             else -> {
-
+                bookmarkRepository.getBookmarks().let {
+                    _screenState.value = if (it.isSuccess()) ScreenState.Result(
+                        it.data!!,
+                        parcel.position
+                    )
+                    else ScreenState.Error(it.message!!)
+                }
             }
         }
     }
@@ -92,10 +105,11 @@ class DetailViewModel @Inject constructor(
     private fun setBackground(uri: Uri) {
         stateHandle.get<DetailParcel>(PARCEL)?.let {
             it.background = uri
+            stateHandle.set(PARCEL, it)
         }
     }
 
-    fun getBackground(): Uri? {
+    private fun getBackground(): Uri? {
         return stateHandle.get<DetailParcel>(PARCEL)?.background
     }
 

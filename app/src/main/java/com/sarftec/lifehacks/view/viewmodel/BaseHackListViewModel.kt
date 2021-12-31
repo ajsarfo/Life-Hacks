@@ -16,4 +16,8 @@ abstract class BaseHackListViewModel : ViewModel() {
         class Result(val hacks: List<Hack>) : ScreenState()
         class Error(val message: String) : ScreenState()
     }
+
+    abstract fun bookmark(hack: Hack)
+
+    abstract fun handleRebind()
 }

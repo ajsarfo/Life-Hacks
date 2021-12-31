@@ -15,6 +15,8 @@ class HackListItemAdapter(
     onClick: (Hack, Int) -> Unit
 ) : BaseHackListAdapter() {
 
+    private val viewHolders = hashSetOf<HackListItemViewHolder>()
+
     override val dependency: HackListItemViewHolder.ViewHolderDependency by lazy {
         HackListItemViewHolder.ViewHolderDependency(
             context,
@@ -24,7 +26,18 @@ class HackListItemAdapter(
         )
     }
 
+    override fun onBindViewHolder(holder: BaseHackListViewHolder, position: Int) {
+        viewHolders.add(holder as HackListItemViewHolder)
+        super.onBindViewHolder(holder, position)
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseHackListViewHolder {
         return HackListItemViewHolder.getInstance(parent, dependency = dependency)
+    }
+
+    fun rebindHacks(hacks: Collection<Hack>) {
+        hacks.forEach { hack ->
+            viewHolders.forEach { it.rebind(hack) }
+        }
     }
 }

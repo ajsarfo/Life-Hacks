@@ -1,5 +1,28 @@
 <resources>
     <string name="app_name">Life Hacks</string>
-
+    <string name="open_drawer">Open</string>
+    <string name="close_drawer">Close</string>
+    <string name="app_share_message">"Hi! Take a look at this amazing app Life Hacks. Its free!! You should get it too."</string>
     <string name="lorem_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consequuntur culpa et optio pariatur. Autem dicta dignissimos dolorem, ex laborum laudantium natus placeat quaerat quas quasi, qui sequi vel voluptas.</string>
+
+    <string name="admob_test_banner_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_test_interstitial_id">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="admob_test_reward_video_id">ca-app-pub-3940256099942544/5224354917</string>
+
+
+   <string name="admob_banner_main">@string/admob_test_banner_id</string>
+    <string name="admob_banner_list">@string/admob_test_banner_id</string>
+   <string name="admob_banner_detail">@string/admob_test_banner_id</string>
+
+   <string name="admob_interstitial_id">@string/admob_test_interstitial_id</string>
+   <string name="admob_reward_video_id">@string/admob_test_reward_video_id</string>
+
+    <!--
+    <string name="admob_banner_main">ca-app-pub-6150813452529727/5770113140</string>
+    <string name="admob_banner_list">ca-app-pub-6150813452529727/1094185741</string>
+    <string name="admob_banner_detail">ca-app-pub-6150813452529727/5628859958</string>
+
+    <string name="admob_interstitial_id">ca-app-pub-6150813452529727/2215695720</string>
+    <string name="admob_reward_video_id">ca-app-pub-6150813452529727/4315778282</string>
+    -->
 </resources>

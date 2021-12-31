@@ -6,7 +6,9 @@ import com.sarftec.lifehacks.domain.model.Category
 import com.sarftec.lifehacks.utils.Resource
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class LocalAssets @Inject constructor(
     @ApplicationContext private val context: Context
 ){
@@ -39,6 +41,8 @@ class LocalAssets @Inject constructor(
             Resource.error("Error => ${e.message}")
         }
     }
+
+    fun getLogo() : Uri = "logo.jpg".toAssetUri("logo")
 
     private fun String.toAssetUri(folder: String) : Uri {
         return Uri.parse("file:///android_asset/$folder/$this")

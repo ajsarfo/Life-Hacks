@@ -4,9 +4,44 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Parcelable
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.ads.AdRequest
 import com.sarftec.lifehacks.R
+import com.sarftec.lifehacks.utils.NetworkManager
+import com.sarftec.lifehacks.view.advertisement.AdCountManager
+import com.sarftec.lifehacks.view.advertisement.InterstitialManager
+import javax.inject.Inject
 
 abstract class BaseActivity : AppCompatActivity() {
+
+    protected val adRequestBuilder: AdRequest by lazy {
+        AdRequest.Builder().build()
+    }
+
+    protected var interstitialManager: InterstitialManager? = null
+
+    @Inject
+    lateinit var networkManager: NetworkManager
+
+    protected open fun canShowInterstitial() : Boolean = false
+
+    protected open fun createAdCounterManager() : AdCountManager {
+        return AdCountManager(listOf(1, 4, 3))
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        //Load interstitial if required by extending activity
+        if(!canShowInterstitial()) return
+        interstitialManager = InterstitialManager(
+            this,
+            getString(R.string.admob_interstitial_id),
+            networkManager,
+            createAdCounterManager(),
+            adRequestBuilder
+        )
+        interstitialManager?.load()
+    }
+
 
     protected fun <T> navigateTo(
         klass: Class<T>,

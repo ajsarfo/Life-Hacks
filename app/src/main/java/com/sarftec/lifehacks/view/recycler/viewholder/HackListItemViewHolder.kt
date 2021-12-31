@@ -10,11 +10,17 @@ import com.sarftec.lifehacks.view.viewmodel.HackListViewModel
 
 class HackListItemViewHolder(
     layoutHackItemBinding: LayoutHackItemBinding,
-    dependency: ViewHolderDependency
-) : BaseHackListViewHolder(layoutHackItemBinding, dependency) {
+    private val holderDependency: ViewHolderDependency
+) : BaseHackListViewHolder(layoutHackItemBinding, holderDependency) {
 
     override fun onBookmark(hack: Hack) {
+        holderDependency.viewModel.bookmark(hack)
+    }
 
+    fun rebind(hack: Hack) {
+        this.hack?.let {
+            if (it == hack) setBookmark(hack.isFavorite)
+        }
     }
 
     companion object {

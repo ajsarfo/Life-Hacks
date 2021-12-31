@@ -8,7 +8,7 @@ abstract class BaseHackListAdapter : RecyclerView.Adapter<BaseHackListViewHolder
 
     protected abstract val dependency: BaseHackListViewHolder.BaseHackListDependency
 
-    protected var items = listOf<Hack>()
+    protected var items = mutableListOf<Hack>()
 
     override fun onBindViewHolder(holder: BaseHackListViewHolder, position: Int) {
        holder.bind(items[position], position)
@@ -17,7 +17,7 @@ abstract class BaseHackListAdapter : RecyclerView.Adapter<BaseHackListViewHolder
     override fun getItemCount(): Int = items.size
 
     fun submitData(items: List<Hack>) {
-        this.items = items
+        this.items = items.toMutableList()
         notifyDataSetChanged()
     }
 }

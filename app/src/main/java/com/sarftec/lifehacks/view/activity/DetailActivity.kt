@@ -9,6 +9,8 @@ import com.sarftec.lifehacks.R
 import com.sarftec.lifehacks.databinding.ActivityDetailBinding
 import com.sarftec.lifehacks.domain.model.Hack
 import com.sarftec.lifehacks.utils.Event
+import com.sarftec.lifehacks.view.advertisement.RewardVideoManager
+import com.sarftec.lifehacks.view.dialog.LoadingDialog
 import com.sarftec.lifehacks.view.file.*
 import com.sarftec.lifehacks.view.handler.ReadWriteHandler
 import com.sarftec.lifehacks.view.handler.ToolingHandler
@@ -34,6 +36,19 @@ class DetailActivity : BaseActivity() {
 
     private lateinit var toolingHandler: ToolingHandler
     private lateinit var readWriteHandler: ReadWriteHandler
+
+    private val rewardVideoManager by lazy {
+        RewardVideoManager(
+            this,
+            R.string.admob_reward_video_id,
+            adRequestBuilder,
+            networkManager
+        )
+    }
+
+    private val loadingDialog by lazy {
+        LoadingDialog(this, layoutBinding.root)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -99,9 +114,13 @@ class DetailActivity : BaseActivity() {
             }
         }
         layoutBinding.bottomLayout.detailDownload.setOnClickListener {
-            layoutBinding.captureFrame.toBitmap {
-                toolingHandler.saveImage(it)
-            }
+            loadingDialog.show()
+           rewardVideoManager.showRewardVideo {
+               layoutBinding.captureFrame.toBitmap {
+                   loadingDialog.dismiss()
+                   toolingHandler.saveImage(it)
+               }
+           }
         }
     }
 

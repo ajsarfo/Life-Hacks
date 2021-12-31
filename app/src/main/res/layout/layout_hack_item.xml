@@ -39,6 +39,8 @@
                 android:shadowDx="4"
                 android:shadowDy="4"
                 android:shadowRadius="4"
+                android:maxLines="12"
+                android:ellipsize="end"
                 style="@style/HackItemStyle"
                 tools:text="@string/lorem_text"
                 />
