@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <dimen name="progress_size">64dp</dimen>
+
+    <dimen name="hack_item_bottom_icon_size">26dp</dimen>
+    <dimen name="hack_item_bottom_icon_holder_vertical_padding">10dp</dimen>
+
+    <dimen name="detail_bottom_icon_size">28dp</dimen>
+    <dimen name="detail_bottom_icon_holder_vertical_padding">14dp</dimen>
 </resources>

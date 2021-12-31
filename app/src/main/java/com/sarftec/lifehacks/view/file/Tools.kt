@@ -4,10 +4,12 @@ import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
+import android.view.View
 import androidx.core.content.FileProvider
 import com.sarftec.lifehacks.R
 import java.io.File
@@ -17,6 +19,15 @@ import java.io.OutputStream
 /*
 Note: The image should exist inside the cache directory
  */
+
+fun View.toBitmap(
+    callback: (Bitmap) -> Unit
+) {
+    val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+    val canvas = Canvas(bitmap)
+    draw(canvas)
+    callback(bitmap)
+}
 
 fun Context.shareImage(file: File) {
     val adjustedUri =

@@ -16,6 +16,11 @@ class HackRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getHacksForCategory(categoryId: Int): Resource<List<Hack>> {
-        return localSource.getHacks()
+        return localSource.getHacks().let {
+            if(it.isSuccess()) Resource.success(
+                it.data!!.filter { it.categoryId == categoryId }
+            )
+            else Resource.error(it.message!!)
+        }
     }
 }

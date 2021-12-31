@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Life Hacks</string>
+
+    <string name="lorem_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consequuntur culpa et optio pariatur. Autem dicta dignissimos dolorem, ex laborum laudantium natus placeat quaerat quas quasi, qui sequi vel voluptas.</string>
 </resources>

@@ -5,6 +5,13 @@ import android.net.Uri
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 
+fun Context.copy(text: String, label: String) {
+    ContextCompat.getSystemService(this, ClipboardManager::class.java)?.apply {
+        val clip = ClipData.newPlainText(label, text)
+        setPrimaryClip(clip)
+    }
+}
+
 fun Context.toast(message: String, length: Int = Toast.LENGTH_SHORT) {
     Toast.makeText(this, message, length).show()
 }

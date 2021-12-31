@@ -6,10 +6,12 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.sarftec.lifehacks.R
 import com.sarftec.lifehacks.databinding.ActivityMainBinding
+import com.sarftec.lifehacks.view.listerner.HomeFragmentListener
+import com.sarftec.lifehacks.view.parcel.CategoryToList
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : BaseActivity() {
+class MainActivity : BaseActivity(), HomeFragmentListener {
 
     private val layoutBinding by lazy {
         ActivityMainBinding.inflate(
@@ -30,5 +32,9 @@ class MainActivity : BaseActivity() {
             R.id.nav_container
         ) as NavHostFragment
         return navHost.navController
+    }
+
+    override fun navigateToList(parcel: CategoryToList) {
+        navigateToWithParcel(HackListActivity::class.java, parcel = parcel)
     }
 }

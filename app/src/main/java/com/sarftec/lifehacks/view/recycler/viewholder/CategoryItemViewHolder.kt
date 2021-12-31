@@ -19,6 +19,7 @@ class CategoryItemViewHolder private constructor(
     fun bind(category: Category) {
         dependency.coroutineScope.launch {
             layoutBinding.category.text = category.category
+            layoutBinding.card.setOnClickListener { dependency.onClick(category) }
             dependency.viewModel.getImage(category).let {
                 if(it.isSuccess()) layoutBinding.imageView.loadImage(itemView, it.data!!)
                 else {

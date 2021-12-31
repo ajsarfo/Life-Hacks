@@ -16,7 +16,17 @@
 
     <color name="color_primary">#673AB7</color>
 
-    <color name="color_color_on_category">@color/white</color>
-
+    <color name="color_on_category">@color/white</color>
     <color name="color_category_scrim">#33000000</color>
+
+    <color name="color_share">#FF4E41</color>
+    <color name="color_bookmark">#50B1FF</color>
+    <color name="color_un_bookmark">#777777</color>
+    <color name="color_copy">#3F51B5</color>
+    <color name="color_download">#4CAF50</color>
+    <color name="color_change">@color/color_primary</color>
+
+    <color name="color_hack_item_scrim">#804A4A4A</color>
+
+    <color name="color_detail_bottom_background">#353535</color>
 </resources>

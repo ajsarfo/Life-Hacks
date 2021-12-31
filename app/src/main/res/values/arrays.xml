@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="hack_colors">
+        <item name="color1">#f17643</item>
+        <item name="color11">#b6e3e9</item>
+        <item name="color12">#fdafab</item>
+        <item name="color13">#b6cfb6</item>
+        <item name="color14">#fdafdb</item>
+        <item name="color15">#fad4ae</item>
+        <item name="color16">#ecd5e3</item>
+        <item name="color17">#bcd1c2</item>
+        <item name="color18">#a2e1db</item>
+        <item name="color19">#cda1bc</item>
+        <item name="color2">#ffc44c</item>
+        <item name="color20">#dac397</item>
+        <item name="color21">#ffdaec</item>
+        <item name="color22">#bbc9b2</item>
+        <item name="color23">#aff5b4</item>
+        <item name="color24">#f8e3a1</item>
+        <item name="color25">#edddff</item>
+        <item name="color26">#ffdeb3</item>
+        <item name="color27">#cae8ff</item>
+        <item name="color28">#ffdad5</item>
+        <item name="color3">#feed62</item>
+        <item name="color4">#a9d159</item>
+        <item name="color5">#55c4d0</item>
+    </array>
+</resources>
